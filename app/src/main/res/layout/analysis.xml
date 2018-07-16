@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/sampleBoard"
+            android:layout_width="198dp"
+            android:layout_height="460dp"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/samplesTitle"
+                android:text="样本" />
+
+            <ImageView
+                android:id="@+id/sample1"
+                style="@style/samplesImgView" />
+
+            <ImageView
+                android:id="@+id/sample2"
+                style="@style/samplesImgView" />
+
+            <ImageView
+                android:id="@+id/sample3"
+                style="@style/samplesImgView" />
+
+            <ImageView
+                android:id="@+id/sample4"
+                style="@style/samplesImgView" />
+
+            <ImageView
+                android:id="@+id/sample5"
+                style="@style/samplesImgView"
+                android:layout_marginTop="30dp" />
+
+            <ImageView
+                android:id="@+id/sample6"
+                style="@style/samplesImgView" />
+
+            <ImageView
+                android:id="@+id/sample7"
+                style="@style/samplesImgView" />
+
+            <ImageView
+                android:id="@+id/sample8"
+                style="@style/samplesImgView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/samplesTitle"
+                android:text="抑制率" />
+
+            <TextView
+                android:id="@+id/reading1"
+                style="@style/readingsTextView" />
+
+            <TextView
+                android:id="@+id/reading2"
+                style="@style/readingsTextView" />
+
+            <TextView
+                android:id="@+id/reading3"
+                style="@style/readingsTextView" />
+
+            <TextView
+                android:id="@+id/reading4"
+                style="@style/readingsTextView" />
+
+            <TextView
+                android:id="@+id/reading5"
+                style="@style/readingsTextView"
+                android:layout_marginTop="30dp" />
+
+            <TextView
+                android:id="@+id/reading6"
+                style="@style/readingsTextView" />
+
+            <TextView
+                android:id="@+id/reading7"
+                style="@style/readingsTextView" />
+
+            <TextView
+                android:id="@+id/reading8"
+                style="@style/readingsTextView" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btTakePhoto"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:text="拍照" />
+
+</RelativeLayout>
