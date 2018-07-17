@@ -10,18 +10,76 @@
         android:scaleType="fitXY" />
 
     <LinearLayout
+        android:id="@+id/sampleBoardInfoLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@drawable/horizontal_divider"
         android:orientation="vertical"
-        android:showDividers="beginning"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        android:showDividers="beginning">
 
-        <TextView
-            android:id="@+id/sampleBoardDateTime"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/sampleBoardName"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/sampleBoardDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/history_reading1"
+                style="@style/historyReadingsTextView" />
+
+            <TextView
+                android:id="@+id/history_reading2"
+                style="@style/historyReadingsTextView" />
+
+            <TextView
+                android:id="@+id/history_reading3"
+                style="@style/historyReadingsTextView" />
+
+            <TextView
+                android:id="@+id/history_reading4"
+                style="@style/historyReadingsTextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/history_reading5"
+                style="@style/historyReadingsTextView" />
+
+            <TextView
+                android:id="@+id/history_reading6"
+                style="@style/historyReadingsTextView" />
+
+            <TextView
+                android:id="@+id/history_reading7"
+                style="@style/historyReadingsTextView" />
+
+            <TextView
+                android:id="@+id/history_reading8"
+                style="@style/historyReadingsTextView" />
+        </LinearLayout>
 
     </LinearLayout>
 

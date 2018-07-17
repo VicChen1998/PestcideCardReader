@@ -19,14 +19,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.vicchen.pestcidecardreader.Global.Database;
 import com.vicchen.pestcidecardreader.R;
-import com.vicchen.pestcidecardreader.Utils.GlobalData;
+import com.vicchen.pestcidecardreader.Global.GlobalPath;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DecimalFormat;
@@ -104,7 +104,7 @@ public class Analysis extends Fragment {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         filename = System.currentTimeMillis() + ".jpg";
-        File photo = new File(GlobalData.getPhotoDir(), filename);
+        File photo = new File(GlobalPath.getPhotoDir(), filename);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photo));
 
         startActivityForResult(intent, TAKE_PHOTO_REQUEST);
@@ -124,7 +124,7 @@ public class Analysis extends Fragment {
                 }
 
                 // 获取照片
-                File originPhotoFile = new File(GlobalData.getPhotoDir(), filename);
+                File originPhotoFile = new File(GlobalPath.getPhotoDir(), filename);
                 Bitmap photo = BitmapFactory.decodeFile(originPhotoFile.getPath());
 
 
@@ -150,10 +150,10 @@ public class Analysis extends Fragment {
                 imgvSampleBoard.setImageBitmap(sampleBoardBitmap);
 
                 // 保存样本图片
-                File sampleBoardFile = new File(GlobalData.getSampleBoardDir(), filename);
+                File sampleBoardFile = new File(GlobalPath.getSampleBoardDir(), filename);
                 try {
                     FileOutputStream fos = new FileOutputStream(sampleBoardFile);
-                    sampleBoardBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                    sampleBoardBitmap.compress(Bitmap.CompressFormat.JPEG, 80, fos);
                     fos.flush();
                     fos.close();
                 } catch (Exception e) {
@@ -164,8 +164,7 @@ public class Analysis extends Fragment {
 
 
                 // 分析样板 显示数据
-                analysisSample(sampleBoard);
-
+                analysisSample(sampleBoard, sampleBoardFile.getName());
                 break;
         }
 
@@ -176,7 +175,7 @@ public class Analysis extends Fragment {
      *
      * @param sampleBoard Mat 接受处理好的图像进行分析并显示结果
      */
-    protected void analysisSample(Mat sampleBoard) {
+    protected void analysisSample(Mat sampleBoard, String filename) {
 
         // 8个样本roi锚点
         double anchor_x[] = {0.19, 0.19, 0.19, 0.19, 0.75, 0.75, 0.75, 0.75};
@@ -196,12 +195,21 @@ public class Analysis extends Fragment {
                     (int) (anchor_yh[i] * height),
                     (int) (anchor_x[i] * width),
                     (int) (anchor_xw[i] * width));
+        }
 
-            // 显示样本roi
+
+        // 显示样本roi
+        for (int i = 0; i < 8; i++) {
             Bitmap s = Bitmap.createBitmap(samples[i].width(), samples[i].height(), Bitmap.Config.ARGB_8888);
             Utils.matToBitmap(samples[i], s);
             imgvSamples[i].setImageBitmap(s);
+        }
 
+
+        String readings[] = new String[8];
+
+        // 获取读数
+        for (int i = 0; i < 8; i++) {
             // 检测颜色
             double blue_total = 0;
             for (int r = 0; r < samples[i].rows(); r++) {
@@ -219,9 +227,18 @@ public class Analysis extends Fragment {
 
             Log.d("sample " + i, value + "");
 
+            // 显示读数
             DecimalFormat df = new DecimalFormat("0.0");
             txtvReadings[i].setText(df.format(value) + " %");
 
+            readings[i] = df.format(value) + " %";
+
         }
+
+
+        //保存数据
+        Log.d("FILENAME", filename);
+        Database database = new Database();
+        database.insertReadings(filename, readings[0], readings[1], readings[2], readings[3], readings[4], readings[5], readings[6], readings[7]);
     }
 }

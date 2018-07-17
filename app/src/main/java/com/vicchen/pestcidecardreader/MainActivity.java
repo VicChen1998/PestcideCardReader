@@ -1,5 +1,6 @@
 package com.vicchen.pestcidecardreader;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.vicchen.pestcidecardreader.Analysis.Analysis;
+import com.vicchen.pestcidecardreader.Global.Database;
 import com.vicchen.pestcidecardreader.History.History;
 import com.vicchen.pestcidecardreader.Settings.Settings;
 
@@ -92,7 +94,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Database.close();
     }
 
 

@@ -1,10 +1,10 @@
-package com.vicchen.pestcidecardreader.Utils;
+package com.vicchen.pestcidecardreader.Global;
 
 import android.os.Environment;
 
 import java.io.File;
 
-public class GlobalData {
+public class GlobalPath {
 
     private static String baseDirName = "PestcideCardReader";
     private static File baseDir;
@@ -15,9 +15,8 @@ public class GlobalData {
     private static String sampleBoardDirName = "SampleBoard";
     private static File sampleBoardDir;
 
-    public GlobalData() {
-
-    }
+    private static String databaseName = "PestcideCardReader.db";
+    private static String databasePath;
 
     // 应用根目录
     public static String getBaseDirName() {
@@ -33,6 +32,19 @@ public class GlobalData {
         return baseDir;
     }
 
+
+    // 数据库目录
+    public static String getDatabaseName() {
+        return databaseName;
+    }
+
+    public static String getDatabasePath() {
+        if (databasePath == null)
+            databasePath = getBaseDir().getPath() + "/" + databaseName;
+        return databasePath;
+    }
+
+
     // 原始照片目录
     public static String getPhotoDirName() {
         return photoDirName;
@@ -46,6 +58,7 @@ public class GlobalData {
         }
         return photoDir;
     }
+
 
     // 样板图片目录
     public static String getSampleBoardDirName() {

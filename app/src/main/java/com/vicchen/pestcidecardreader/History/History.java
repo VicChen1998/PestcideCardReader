@@ -10,22 +10,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.vicchen.pestcidecardreader.Global.Database;
 import com.vicchen.pestcidecardreader.R;
-import com.vicchen.pestcidecardreader.Utils.GlobalData;
+import com.vicchen.pestcidecardreader.Global.GlobalPath;
 import com.vicchen.pestcidecardreader.View.SampleBoardInfo;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 public class History extends Fragment {
@@ -90,19 +86,25 @@ public class History extends Fragment {
     }
 
     private void loadSamples() {
-        File files[] = GlobalData.getSampleBoardDir().listFiles();
+        File files[] = GlobalPath.getSampleBoardDir().listFiles();
         List<File> fileList = Arrays.asList(files);
         Collections.sort(fileList, new FileComparatorByTimeDesc());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
+        Database database = new Database();
+
         for (File file : fileList) {
             Bitmap photo = BitmapFactory.decodeFile(file.getPath());
+
+            String readings[] = database.searchReadings(file.getName());
 
             SampleBoardInfo sampleBoardInfo = new SampleBoardInfo(getContext());
             sampleBoardInfo.setThumbnailBitmap(photo);
 
             sampleBoardInfo.setDatetime(dateFormat.format(file.lastModified()));
+
+            sampleBoardInfo.setReadings(readings);
 
             linearLayout.addView(sampleBoardInfo);
         }

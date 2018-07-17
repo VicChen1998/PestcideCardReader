@@ -72,36 +72,36 @@
 
             <TextView
                 android:id="@+id/analysis_reading1"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
             <TextView
                 android:id="@+id/analysis_reading2"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
             <TextView
                 android:id="@+id/analysis_reading3"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
             <TextView
                 android:id="@+id/analysis_reading4"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
             <TextView
                 android:id="@+id/analysis_reading5"
-                style="@style/readingsTextView"
+                style="@style/analysisReadingsTextView"
                 android:layout_marginTop="30dp" />
 
             <TextView
                 android:id="@+id/analysis_reading6"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
             <TextView
                 android:id="@+id/analysis_reading7"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
             <TextView
                 android:id="@+id/analysis_reading8"
-                style="@style/readingsTextView" />
+                style="@style/analysisReadingsTextView" />
 
         </LinearLayout>
     </LinearLayout>
