@@ -19,7 +19,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -27,36 +27,36 @@
                 android:text="样本" />
 
             <ImageView
-                android:id="@+id/sample1"
+                android:id="@+id/analysis_sample1"
                 style="@style/samplesImgView" />
 
             <ImageView
-                android:id="@+id/sample2"
+                android:id="@+id/analysis_sample2"
                 style="@style/samplesImgView" />
 
             <ImageView
-                android:id="@+id/sample3"
+                android:id="@+id/analysis_sample3"
                 style="@style/samplesImgView" />
 
             <ImageView
-                android:id="@+id/sample4"
+                android:id="@+id/analysis_sample4"
                 style="@style/samplesImgView" />
 
             <ImageView
-                android:id="@+id/sample5"
+                android:id="@+id/analysis_sample5"
                 style="@style/samplesImgView"
                 android:layout_marginTop="30dp" />
 
             <ImageView
-                android:id="@+id/sample6"
+                android:id="@+id/analysis_sample6"
                 style="@style/samplesImgView" />
 
             <ImageView
-                android:id="@+id/sample7"
+                android:id="@+id/analysis_sample7"
                 style="@style/samplesImgView" />
 
             <ImageView
-                android:id="@+id/sample8"
+                android:id="@+id/analysis_sample8"
                 style="@style/samplesImgView" />
         </LinearLayout>
 
@@ -71,36 +71,36 @@
                 android:text="抑制率" />
 
             <TextView
-                android:id="@+id/reading1"
+                android:id="@+id/analysis_reading1"
                 style="@style/readingsTextView" />
 
             <TextView
-                android:id="@+id/reading2"
+                android:id="@+id/analysis_reading2"
                 style="@style/readingsTextView" />
 
             <TextView
-                android:id="@+id/reading3"
+                android:id="@+id/analysis_reading3"
                 style="@style/readingsTextView" />
 
             <TextView
-                android:id="@+id/reading4"
+                android:id="@+id/analysis_reading4"
                 style="@style/readingsTextView" />
 
             <TextView
-                android:id="@+id/reading5"
+                android:id="@+id/analysis_reading5"
                 style="@style/readingsTextView"
                 android:layout_marginTop="30dp" />
 
             <TextView
-                android:id="@+id/reading6"
+                android:id="@+id/analysis_reading6"
                 style="@style/readingsTextView" />
 
             <TextView
-                android:id="@+id/reading7"
+                android:id="@+id/analysis_reading7"
                 style="@style/readingsTextView" />
 
             <TextView
-                android:id="@+id/reading8"
+                android:id="@+id/analysis_reading8"
                 style="@style/readingsTextView" />
 
         </LinearLayout>
@@ -113,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:text="拍照" />
 
 </RelativeLayout>
