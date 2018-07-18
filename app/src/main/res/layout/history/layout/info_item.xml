@@ -34,51 +34,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="25dp"
                 android:gravity="center_vertical" />
+
+            <ImageButton
+                android:id="@+id/sampleBoardMenu"
+                android:layout_width="15dp"
+                android:layout_height="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/menu" />
 
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/historyTopReadingsLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/history_reading1"
-                style="@style/historyReadingsTextView" />
-
-            <TextView
-                android:id="@+id/history_reading2"
-                style="@style/historyReadingsTextView" />
-
-            <TextView
-                android:id="@+id/history_reading3"
-                style="@style/historyReadingsTextView" />
-
-            <TextView
-                android:id="@+id/history_reading4"
-                style="@style/historyReadingsTextView" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/historyBottomReadingsLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/history_reading5"
-                style="@style/historyReadingsTextView" />
-
-            <TextView
-                android:id="@+id/history_reading6"
-                style="@style/historyReadingsTextView" />
-
-            <TextView
-                android:id="@+id/history_reading7"
-                style="@style/historyReadingsTextView" />
-
-            <TextView
-                android:id="@+id/history_reading8"
-                style="@style/historyReadingsTextView" />
         </LinearLayout>
 
     </LinearLayout>

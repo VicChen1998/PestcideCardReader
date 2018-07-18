@@ -164,7 +164,7 @@ public class Analysis extends Fragment {
 
 
                 // 分析样板 显示数据
-                analysisSample(sampleBoard, sampleBoardFile.getName());
+                analysisSample(sampleBoard);
                 break;
         }
 
@@ -175,7 +175,7 @@ public class Analysis extends Fragment {
      *
      * @param sampleBoard Mat 接受处理好的图像进行分析并显示结果
      */
-    protected void analysisSample(Mat sampleBoard, String filename) {
+    protected void analysisSample(Mat sampleBoard) {
 
         // 8个样本roi锚点
         double anchor_x[] = {0.19, 0.19, 0.19, 0.19, 0.75, 0.75, 0.75, 0.75};
@@ -237,8 +237,7 @@ public class Analysis extends Fragment {
 
 
         //保存数据
-        Log.d("FILENAME", filename);
         Database database = new Database();
-        database.insertReadings(filename, readings[0], readings[1], readings[2], readings[3], readings[4], readings[5], readings[6], readings[7]);
+        database.insertReadings(filename, readings);
     }
 }

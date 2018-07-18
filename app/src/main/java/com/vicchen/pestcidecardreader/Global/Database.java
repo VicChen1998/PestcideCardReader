@@ -42,22 +42,19 @@ public class Database {
     }
 
     public void insertReadings(String sampleBoardFilename,
-                               String reading1, String reading2,
-                               String reading3, String reading4,
-                               String reading5, String reading6,
-                               String reading7, String reading8) {
+                               String readings[]) {
 
         String insert_sql = "insert into " + readingsTableName +
                 " (filename, reading1, reading2, reading3, reading4, reading5, reading6, reading7, reading8) " +
                 "values ('" + sampleBoardFilename + "', '" +
-                reading1 + "', '" +
-                reading2 + "', '" +
-                reading3 + "', '" +
-                reading4 + "', '" +
-                reading5 + "', '" +
-                reading6 + "', '" +
-                reading7 + "', '" +
-                reading8 + "');";
+                readings[0] + "', '" +
+                readings[1] + "', '" +
+                readings[2] + "', '" +
+                readings[3] + "', '" +
+                readings[4] + "', '" +
+                readings[5] + "', '" +
+                readings[6] + "', '" +
+                readings[7] + "');";
 
         Log.d("INSERT SQL", insert_sql);
 
@@ -65,24 +62,28 @@ public class Database {
     }
 
     public String[] searchReadings(String sampleBoardFilename) {
-        Cursor cursor = database.query(readingsTableName, null, null, null, null, null, null);
+        Cursor cursor = database.query(readingsTableName,
+                null,
+                "filename = ?",
+                new String[]{sampleBoardFilename},
+                null, null, null);
+
         String outputs[] = new String[8];
 
-        if (cursor.moveToFirst()) {
+        if (cursor.getCount() == 1 && cursor.moveToFirst()) {
+            for (int i = 0; i < 8; i++)
+                outputs[i] = cursor.getString(i + 2);
 
-            for (int i = 0; i < cursor.getCount(); i++) {
-                cursor.move(i);
-                if (cursor.getString(1).equals(sampleBoardFilename)) {
-                    for (int j = 0; j < 8; j++)
-                        outputs[j] = cursor.getString(j + 2);
-                    return outputs;
-                }
-            }
+            return outputs;
         }
 
         for (int i = 0; i < 8; i++)
             outputs[i] = "";
         return outputs;
+    }
+
+    public void deleteReadings(String sampleBoardFilename) {
+        database.delete(readingsTableName, "filename = ?", new String[]{sampleBoardFilename});
     }
 
 }
