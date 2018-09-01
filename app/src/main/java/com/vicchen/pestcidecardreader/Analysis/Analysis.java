@@ -1,15 +1,18 @@
 package com.vicchen.pestcidecardreader.Analysis;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,12 +103,15 @@ public class Analysis extends Fragment {
 
 
     private void startAnalysis() {
+        filename = System.currentTimeMillis() + ".jpg";
+        File photo = new File(Environment.getExternalStorageDirectory() + "/photo/" + filename);
+        if(!photo.getParentFile().exists())
+            photo.getParentFile().mkdirs();
+        Uri photoUri = FileProvider.getUriForFile(getContext(),"com.vicchen.pestcidecardreader.fileprovider", photo);
         // 调用相机
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        filename = System.currentTimeMillis() + ".jpg";
-        File photo = new File(GlobalPath.getPhotoDir(), filename);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photo));
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
 
         startActivityForResult(intent, TAKE_PHOTO_REQUEST);
     }
@@ -124,7 +130,7 @@ public class Analysis extends Fragment {
                 }
 
                 // 获取照片
-                File originPhotoFile = new File(GlobalPath.getPhotoDir(), filename);
+                File originPhotoFile = new File(Environment.getExternalStorageDirectory() + "/photo/" + filename);
                 Bitmap photo = BitmapFactory.decodeFile(originPhotoFile.getPath());
 
 
