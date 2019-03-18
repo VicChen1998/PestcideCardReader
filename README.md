@@ -3,9 +3,10 @@
 
 ## 简介
 
-农药残留检测仪 及 配套Android app
+[农药残留检测仪](#anchor_pi) 及 [配套Android app](#anchor_app)
 
 ## 基于树莓派的农药残留检测仪
+<span id="anchor_pi"></span>
  
  * 使用PyQt构建图形界面
  * 使用uvc协议摄像头拍摄检测板图像
@@ -40,6 +41,7 @@
 </table>
 
 ## Android app
+<span id="anchor_app"></span>
 
  * 使用手机摄像头拍摄检测板图像
  * app内置opencv
