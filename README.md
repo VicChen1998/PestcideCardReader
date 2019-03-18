@@ -19,23 +19,23 @@
 <table style="text-align:center">
     <tr><td>
         <h3>开始界面</h3>
-        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/homepage.jng?raw=true">
+        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/homepage.jpg?raw=true">
     </td></tr>
     <tr><td>
         <h3>检测界面</h3>
-        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/analyse_page.jng?raw=true">
+        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/analyse_page.jpg?raw=true">
     </td></tr>
     <tr><td>
         <h3>检测记录</h3>
-        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/record_page.jng?raw=true">
+        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/record_page.jpg?raw=true">
     </td></tr>
     <tr><td>
         <h3>连接wifi</h3>
-        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/wifi.jng?raw=true">
+        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/wifi_page.jpg?raw=true">
     </td></tr>
     <tr><td>
         <h3>打印结果</h3>
-        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/print.jng?raw=true">
+        <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/print.jpg?raw=true">
     </td></tr>
 </table>
 
@@ -70,7 +70,7 @@
         </td>
         <td>
             <h3>分析结果</h3>
-            <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/analyse_3.png?raw=true">
+            <img src="https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/analyse_2.png?raw=true">
         </td>
     </tr>
     <tr>
@@ -80,15 +80,3 @@
         </td>
     </tr>
 </table>
-
-<!-- |拍摄照片|分析结果|
-|-|-|
-|![image](https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/photo_1.png?raw=true)|![image](https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/analyse_1.png?raw=true)|
-
-|拍摄照片|分析结果|
-|-|-|
-|![image](https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/photo_2.png?raw=true)|![image](https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/analyse_2.png?raw=true)|
-
-|拍摄照片|
-|-|
-|![image](https://github.com/VicChen1998/PestcideCardReader/blob/master/readme_imgs/record.png?raw=true)| -->
